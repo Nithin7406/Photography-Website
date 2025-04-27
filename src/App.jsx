@@ -1,14 +1,19 @@
-import Header from "./components/Header";
-import HeroSection from "./components/HeroSection";
+import HomePage from "./components/HomePage";
+import OurPortfolio from "./components/OurPortfolio";
 import AboutSection from "./components/AboutSection";
+import AboutUs from "./components/AboutUs";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div className="font-sans">
-      <Header />
-      <HeroSection />
+      <HomePage />
       <AboutSection />
+      <OurPortfolio />
+      <AboutUs />
+      <Footer />
     </div>
   );
 }
+
 export default App;
