@@ -11,7 +11,7 @@ function AboutSection() {
       <div className="max-w-5xl mx-auto text-left">
         <div className="relative">
           <h2 className="text-6xl font-bold text-black">HEART</h2>
-          <h3 className="absolute top-6 left-28 sm:left-36 font-semibold text-6xl font-light text-[#d9d2c9]">
+          <h3 className="absolute top-6 left-28 sm:left-36 font-semibold text-6xl font-light text-[#d1b796]">
             STRING
           </h3>
           <div className="mt-4">
@@ -33,12 +33,11 @@ function AboutSection() {
           <button
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="mt-6 md:mt-8 px-6 md:px-8 py-3 text-base font-semibold transition-all duration-300 ease-in-out transform hover:scale-105"
-            style={{
-              backgroundColor: isHovered ? "#f3f3f3" : "#5c492d",
-              color: isHovered ? "#5c492d" : "white",
-              boxShadow: isHovered ? "0 4px 6px rgba(0, 0, 0, 0.1)" : "none",
-            }}
+            className={`mt-6 md:mt-8 px-6 md:px-8 py-3 text-base font-semibold transition-all duration-300 ease-in-out transform ${
+              isHovered
+                ? "bg-[#f3f3f3] text-[#5c492d] shadow-lg scale-105"
+                : "bg-[#5c492d] text-white"
+            }`}
           >
             EXPLORE WEDDINGS &gt;
           </button>

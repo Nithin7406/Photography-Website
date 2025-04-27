@@ -10,10 +10,7 @@ import img8 from "../assets/Insta8.jpg";
 
 const Footer = () => {
   return (
-    <footer
-      className="bg-[#f5e5d5] pt-10"
-      style={{ fontFamily: "Raleway, sans-serif" }} // Apply Raleway to the entire footer
-    >
+    <footer className="bg-[#f5e5d5] pt-10 font-raleway">
       {/* Follow me on Instagram Section */}
       <div className="text-center mb-10">
         <h2 className="text-lg font-semibold uppercase mb-6">
@@ -28,7 +25,7 @@ const Footer = () => {
                 <img
                   key={index}
                   src={img}
-                  alt={`Insta ${index + 1}`}
+                  alt={`Instagram post ${index + 1}`}
                   className="h-32 object-cover hover:scale-105 transition-transform duration-300"
                   style={{ width: "auto", maxWidth: "100%", flex: "1 1 auto" }}
                 />
@@ -38,17 +35,14 @@ const Footer = () => {
 
           {/* Centered Instagram ID */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div
-              className="bg-black bg-opacity-50 text-white text-base bg-black/70 shadow-md sm:text-lg font-sans px-4 py-2 rounded-md"
-              style={{ fontFamily: "Raleway, sans-serif" }}
-            >
+            <div className="bg-black bg-opacity-50 text-white text-base bg-black/70 shadow-md sm:text-lg font-sans px-4 py-2 rounded-md">
               <a
                 href="https://www.instagram.com/wecaptures_photography/?hl=en"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline"
               >
-                @wecaptures_photogrInsta1
+                @wecaptures_photography
               </a>
             </div>
           </div>
@@ -68,11 +62,11 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="px-4 py-3 text-black  border-1 border-gray-100 focus:outline-none focus:ring-2 focus:ring-[#b88e56] transition-all"
+              className="px-4 py-3 text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#b88e56] transition-all"
             />
             <button
               type="submit"
-              className="bg-[#b88e56] text-white px-6 py-3  hover:bg-[#9c7a42] transition-colors duration-300"
+              className="bg-[#b88e56] text-white px-6 py-3 hover:bg-[#9c7a42] transition-colors duration-300"
             >
               Submit
             </button>

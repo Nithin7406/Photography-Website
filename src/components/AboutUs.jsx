@@ -28,9 +28,6 @@ function ImageLayout() {
               provide timeless and high-quality photographic services that
               preserve memories for generations to come.
             </p>
-            <button className="mt-4 px-5 py-2 bg-white text-black text-xs font-semibold rounded-full hover:bg-gray-100 transition">
-              Learn More
-            </button>
           </div>
         </div>
 

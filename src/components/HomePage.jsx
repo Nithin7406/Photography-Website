@@ -3,7 +3,7 @@ import bgImage from "../assets/BgIMG.jpg";
 
 function HeroWithNavbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <div className="relative" style={{ fontFamily: "Raleway, sans-serif" }}>
       {/* Header */}
@@ -82,7 +82,15 @@ function HeroWithNavbar() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold mt-2 leading-tight">
               Celebrate Your Love Story In Style
             </h1>
-            <button className="mt-8 md:mt-10 px-6 md:px-8 py-3 bg-white text-black text-base font-semibold rounded-full hover:bg-gray-100 transition">
+            <button
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              className={`mt-6 md:mt-8 px-6 md:px-8 py-3 text-base font-semibold transition-all duration-300 ease-in-out transform ${
+                isHovered
+                  ? "bg-[#5c492d] text-[#f3f3f3] shadow-lg scale-105"
+                  : "bg-white text-[#5c492d]"
+              }`}
+            >
               Get a Quote
             </button>
           </div>
