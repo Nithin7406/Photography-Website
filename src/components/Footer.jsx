@@ -48,7 +48,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
       {/* Newsletter Section */}
       <div className="flex flex-col items-center mb-10 px-4">
         <div className="bg-[#5c4428] w-full max-w-2xl py-6 px-6 rounded-md text-white flex flex-col sm:flex-row items-center gap-4">
@@ -58,15 +57,17 @@ const Footer = () => {
               Be the first one to know about discounts, offers.
             </p>
           </div>
-          <form className="flex w-full sm:w-auto items-center gap-4">
+
+          {/* Form */}
+          <form className="flex w-full sm:w-auto items-center gap-2">
             <input
               type="email"
               placeholder="Enter your email"
-              className="px-4 py-3 text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#b88e56] transition-all"
+              className="flex-1 px-4 py-2 text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#b88e56] transition-all rounded-md"
             />
             <button
               type="submit"
-              className="bg-[#b88e56] text-white px-6 py-3 hover:bg-[#9c7a42] transition-colors duration-300"
+              className="px-4 py-2 bg-[#b88e56] text-white text-sm rounded-md hover:bg-[#9c7a42] transition-colors duration-300"
             >
               Submit
             </button>
