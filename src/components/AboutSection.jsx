@@ -8,7 +8,7 @@ function AboutSection() {
       className="relative px-6 md:px-20 pt-8 pb-8 min-h-[50vh] flex items-center bg-[#f5e5d5]"
       style={{
         fontFamily: "Forum, sans-serif",
-        backgroundImage: "url('src/assets/welcome.jpeg')", // Add your image URL here
+        backgroundImage: "url('src/assets/welcome.jpeg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
