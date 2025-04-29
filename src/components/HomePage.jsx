@@ -133,9 +133,9 @@ function HeroWithNavbar() {
           fontFamily: "Raleway, sans-serif",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80 flex flex-col justify-end items-end text-white px-6 sm:px-10 md:px-16 pb-20 md:pb-28 text-right">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/80 flex flex-col justify-end items-end text-white px-6 sm:px-10 md:px-16 pb-20 md:pb-28 text-right">
           <div className="z-10 max-w-2xl">
-            <p className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-wider">
+            <p className="text-2xl sm:text-2xl md:text-2xl  tracking-wider">
               INSPIRED BY PEOPLE
             </p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold mt-2 leading-tight">

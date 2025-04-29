@@ -1,48 +1,73 @@
-import img2 from "../assets/IMG3.jpg";
-import img1 from "../assets/IMG2.jpg";
-import img3 from "../assets/IMG4.jpg";
-import img4 from "../assets/IMG5.jpg";
+import img1 from "../assets/IMG1.jpg";
+import img2 from "../assets/IMG2.jpg";
+import img3 from "../assets/IMG3.jpg";
+import img4 from "../assets/IMG4.jpg";
+import img5 from "../assets/IMG5.jpg";
+import img6 from "../assets/IMG6.jpg"; // New image imported
 
 const portfolioItems = [
-  { name: "Anant Ambani & Radhika Merchant", image: img1 },
-  { name: "Saii Vishnu & Megha Akash", image: img2 },
-  { name: "Siddharth & Aditi Rao Hydari", image: img3 },
-  { name: "Kalidas Jayaram & Tarini Kalingarayar", image: img4 },
-  { name: "Vignesh Shivan & Nayanthara", image: img1 },
-  { name: "Jagat Desai & Amala Paul", image: img2 },
-  { name: "Nikhil Sachdeva & Yarlaleeni", image: img3 },
-  { name: "Antony Thatch & Keerthy Suresh", image: img4 },
-  { name: "Naga Chaitanya & Sobhita Dhulipala", image: img1 },
+  { name: "Anant Ambani & Radhika Merchant", image: img1, shape: "portrait" },
+  { name: "Saii Vishnu & Megha Akash", image: img2, shape: "landscape" },
+  { name: "Siddharth & Aditi Rao Hydari", image: img3, shape: "portrait" },
+  {
+    name: "Kalidas Jayaram & Tarini Kalingarayar",
+    image: img4,
+    shape: "landscape",
+  },
+  { name: "Vignesh Shivan & Nayanthara", image: img5, shape: "portrait" },
+  { name: "Jagat Desai & Amala Paul", image: img1, shape: "landscape" },
+  { name: "Nikhil Sachdeva & Yarlaleeni", image: img2, shape: "portrait" },
+  { name: "Antony Thatch & Keerthy Suresh", image: img3, shape: "landscape" },
+  {
+    name: "Naga Chaitanya & Sobhita Dhulipala",
+    image: img4,
+    shape: "portrait",
+  },
+  { name: "Praveen & Pragathi", image: img5, shape: "landscape" },
+  { name: "Rajeev & Rukmini", image: img6, shape: "portrait" },
 ];
 
 const OurPortfolio = () => (
   <section
-    className="px-6 md:px-20 py-16 min-h-screen bg-[#f5e5d5] flex flex-col justify-center"
+    className="px-4 md:px-12 py-10 min-h-screen bg-[#f5e5d5] flex flex-col justify-center"
     style={{ fontFamily: "Raleway, sans-serif" }}
   >
-    <div className="text-center mb-12">
-      <h2 className="text-4xl font-bold text-black">Our Portfolio</h2>
-      <p className="mt-4 text-gray-600 text-base">
+    <div className="text-center mb-10">
+      <h2 className="text-3xl font-bold text-black">Our Portfolio</h2>
+      <p className="mt-2 text-gray-600 text-sm">
         Explore the stories of our beautiful clients, where every image speaks
         volumes.
       </p>
     </div>
 
-    {/* Masonry layout */}
-    <div className="columns-1 sm:columns-2 md:columns-3 gap-5 space-y-3">
+    {/* GRID layout */}
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
       {portfolioItems.map((item, index) => (
         <div
           key={index}
-          className="break-inside-avoid mb-4 flex flex-col items-center"
+          className={`relative overflow-hidden shadow-md transition-transform duration-200 hover:scale-105
+            ${index === 0 ? "col-span-2 row-span-2" : ""}
+            ${index === 3 ? "col-span-2" : ""}
+            ${index === 5 ? "row-span-2" : ""}
+          `}
         >
-          <img
-            src={item.image}
-            alt={item.name}
-            className="w-[400px] h-auto shadow-md  transition-transform duration-300 ease-in-out hover:scale-105 mx-auto"
-          />
-          <h4 className="mt-2 text-center text-[16px] font-semibold text-black leading-tight">
+          {/* Image Container */}
+          <div
+            className={`w-full h-full ${
+              item.shape === "portrait" ? "aspect-[3/4]" : "aspect-[4/3]"
+            }`}
+          >
+            <img
+              src={item.image}
+              alt={item.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Overlay with Text */}
+          <div className="absolute bottom-0 bg-black/50 text-white text-xs md:text-sm p-1 md:p-2 w-full text-center font-semibold">
             {item.name}
-          </h4>
+          </div>
         </div>
       ))}
     </div>

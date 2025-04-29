@@ -21,10 +21,10 @@ function AboutSection() {
         }}
       ></div>
 
-      <div className="max-w-5xl mx-auto text-left relative z-10">
+      <div className="max-w-5xl mx-auto text-left relative z-10 px-4 lg:ml-40">
         <div className="relative">
           <h2 className="text-6xl font-bold text-black">HEART</h2>
-          <h3 className="absolute top-6 left-28 sm:left-36 font-semibold text-6xl font-light text-[#d1b796]">
+          <h3 className="absolute top-6 left-28 sm:left-36 font-semibold text-6xl font-light text-[#744f24]">
             STRING
           </h3>
           <div className="mt-4">
