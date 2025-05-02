@@ -50,7 +50,7 @@ const Footer = () => {
       </div>
       {/* Newsletter Section */}
       <div className="flex flex-col items-center mb-10 px-4">
-        <div className="bg-[#5c4428] w-full max-w-2xl py-6 px-6 rounded-md text-white flex flex-col sm:flex-row items-center gap-4">
+        <div className="bg-[#916947] w-full max-w-2xl py-6 px-6 rounded-md text-white flex flex-col sm:flex-row items-center gap-4">
           <div className="flex-1 text-center sm:text-left">
             <h3 className="uppercase text-sm font-bold">Newsletter</h3>
             <p className="text-xs mt-2">
@@ -63,11 +63,11 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-2 text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#b88e56] transition-all rounded-md"
+              className="flex-1 px-4 py-2 text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#916947] transition-all rounded-md"
             />
             <button
               type="submit"
-              className="px-4 py-2 bg-[#b88e56] text-white text-sm rounded-md hover:bg-[#9c7a42] transition-colors duration-300"
+              className="px-4 py-2 bg-[#725339] text-white text-sm rounded-md hover:bg-[#b88e56] transition-colors duration-300"
             >
               Submit
             </button>
@@ -76,51 +76,57 @@ const Footer = () => {
       </div>
 
       {/* Follow Us Button */}
-      <div className="text-center mb-10">
+      <div className="text-center bg-[#f5e5d5] mb-10">
         <button className="border border-black px-5 py-2 text-sm hover:bg-black hover:text-white transition">
           Follow us @Everframe
         </button>
       </div>
 
       {/* Contact + Social + Email Section */}
-      <div className="flex flex-col md:flex-row justify-center items-center md:space-x-24 space-y-6 md:space-y-0 text-sm mb-8">
-        <div className="text-center">
-          <h4 className="font-semibold mb-2">Contact Us</h4>
-          <p>+91 9876543210</p>
-        </div>
+      {/* Colored Section Wrapper */}
+      <div className="bg-[#725339] py-6">
+        <div className="bg-[#916947] text-white py-8 px-6 rounded-md max-w-6xl mx-auto">
+          {/* Contact + Social + Email Section */}
+          <div className="flex flex-col md:flex-row justify-center items-center md:space-x-24 space-y-6 md:space-y-0 text-sm mb-8">
+            <div className="text-center">
+              <h4 className="font-semibold mb-2">Contact Us</h4>
+              <p>+91 8861654544</p>
+            </div>
 
-        <div className="text-center">
-          <h4 className="font-semibold mb-2">Social</h4>
-          <div className="flex justify-center space-x-4 text-xl">
-            <FaPinterestP className="hover:text-[#b88e56] cursor-pointer" />
-            <FaFacebookF className="hover:text-[#b88e56] cursor-pointer" />
-            <FaInstagram className="hover:text-[#b88e56] cursor-pointer" />
+            <div className="text-center">
+              <h4 className="font-semibold mb-2">Social</h4>
+              <div className="flex justify-center space-x-4 text-xl">
+                <FaPinterestP className="hover:text-[#b88e56] cursor-pointer" />
+                <FaFacebookF className="hover:text-[#b88e56] cursor-pointer" />
+                <FaInstagram className="hover:text-[#b88e56] cursor-pointer" />
+              </div>
+            </div>
+
+            <div className="text-center">
+              <h4 className="font-semibold mb-2">Email Us</h4>
+              <p>praveenkumar1122000jm@gmail.com</p>
+            </div>
+          </div>
+
+          {/* Navigation Links */}
+          <div className="flex justify-center space-x-8 text-sm mb-6">
+            {["Home", "Portfolio", "Services", "About", "Blog"].map(
+              (item, index) => (
+                <a href="#" key={index} className="hover:underline">
+                  {item}
+                </a>
+              )
+            )}
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-gray-300 opacity-50 mx-8 mb-4"></div>
+
+          {/* Copyright */}
+          <div className="text-center text-xs pb-2">
+            © Copyright 2025 All Rights Reserved
           </div>
         </div>
-
-        <div className="text-center">
-          <h4 className="font-semibold mb-2">Email Us</h4>
-          <p>contact@everframe.com</p>
-        </div>
-      </div>
-
-      {/* Navigation Links */}
-      <div className="flex justify-center space-x-8 text-sm mb-6">
-        {["Home", "Portfolio", "Services", "About", "Blog"].map(
-          (item, index) => (
-            <a href="#" key={index} className="hover:underline">
-              {item}
-            </a>
-          )
-        )}
-      </div>
-
-      {/* Divider */}
-      <div className="border-t border-gray-300 mx-8 mb-4"></div>
-
-      {/* Copyright */}
-      <div className="text-center text-xs pb-4">
-        © Copyright 2025 All Rights Reserved
       </div>
     </footer>
   );
