@@ -3,23 +3,17 @@ import welcomeImage from "../assets/welcome.jpeg"; // adjust path if needed
 function AboutSection() {
   return (
     <section
-      className="relative px-6 md:px-20 pt-8 pb-8 min-h-[50vh] flex items-center bg-[#f5e5d5]"
+      className="relative px-6 md:px-20 pt-8 pb-8 min-h-[50vh] flex items-center"
       style={{
         fontFamily: "Forum, sans-serif",
-        backgroundImage: `url(${welcomeImage})`,
+        backgroundImage: `
+          radial-gradient(circle at right center, rgb(245 229 213 / 0%) 0%, rgb(245 229 213) 70%),
+          url(${welcomeImage})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "85% center", // Shift background image slightly right
+        backgroundAttachment: "fixed",
       }}
     >
-      {/* Gradient Overlay */}
-      <div
-        className="absolute inset-0 opacity-100"
-        style={{
-          background:
-            "linear-gradient(to right, rgb(245, 229, 213) 50%, rgba(255, 255, 255, 0) 100%, rgba(255, 255, 255, 0.05) 0%)",
-        }}
-      ></div>
-
       {/* Content */}
       <div className="max-w-5xl mx-auto text-left relative z-10 px-4 lg:ml-40">
         {/* Title */}

@@ -11,14 +11,12 @@ import img8 from "../assets/Insta8.jpg";
 const Footer = () => {
   return (
     <footer className="bg-[#f5e5d5] pt-10 font-raleway">
-      {/* Follow me on Instagram Section */}
+      {/* Instagram Section */}
       <div className="text-center mb-10">
         <h2 className="text-lg font-semibold uppercase mb-6">
           Follow Me On Instagram
         </h2>
-
         <div className="relative">
-          {/* Images Row */}
           <div className="flex flex-wrap justify-center">
             {[img1, img2, img3, img4, img5, img6, img7, img8].map(
               (img, index) => (
@@ -33,9 +31,8 @@ const Footer = () => {
             )}
           </div>
 
-          {/* Centered Instagram ID */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-black bg-opacity-50 text-white text-base bg-black/70 shadow-md sm:text-lg font-sans px-4 py-2 rounded-md">
+            <div className="bg-black bg-opacity-60 text-white text-base px-4 py-2 rounded-md shadow-lg">
               <a
                 href="https://www.instagram.com/wecaptures_photography/?hl=en"
                 target="_blank"
@@ -48,7 +45,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      {/* Newsletter Section */}
+
+      {/* Newsletter */}
       <div className="flex flex-col items-center mb-10 px-4">
         <div className="bg-[#916947] w-full max-w-2xl py-6 px-6 rounded-md text-white flex flex-col sm:flex-row items-center gap-4">
           <div className="flex-1 text-center sm:text-left">
@@ -57,17 +55,15 @@ const Footer = () => {
               Be the first one to know about discounts, offers.
             </p>
           </div>
-
-          {/* Form */}
-          <form className="flex w-full sm:w-auto items-center gap-2">
+          <form className="flex flex-col sm:flex-row w-full sm:w-auto items-center gap-2">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-2 text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#916947] transition-all rounded-md"
+              className="flex-1 px-4 py-2 text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#916947] transition-all rounded-md w-full sm:w-auto"
             />
             <button
               type="submit"
-              className="px-4 py-2 bg-[#725339] text-white text-sm rounded-md hover:bg-[#b88e56] transition-colors duration-300"
+              className="px-4 py-2 bg-[#725339] text-white text-sm rounded-md hover:bg-[#b88e56] transition-colors duration-300 w-full sm:w-auto"
             >
               Submit
             </button>
@@ -75,19 +71,16 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Follow Us Button */}
-      <div className="text-center bg-[#f5e5d5] mb-10">
-        <button className="border border-black px-5 py-2 text-sm hover:bg-black hover:text-white transition">
-          Follow us @Everframe
-        </button>
-      </div>
-
-      {/* Contact + Social + Email Section */}
-      {/* Colored Section Wrapper */}
+      {/* Contact Section */}
       <div className="bg-[#725339] py-6">
         <div className="bg-[#916947] text-white py-8 px-6 rounded-md max-w-6xl mx-auto">
-          {/* Contact + Social + Email Section */}
-          <div className="flex flex-col md:flex-row justify-center items-center md:space-x-24 space-y-6 md:space-y-0 text-sm mb-8">
+          <div className="flex justify-center mb-6">
+            <button className="border border-white px-6 py-2 text-sm font-semibold hover:bg-white hover:text-[#725339] transition rounded">
+              Follow us @Everframe
+            </button>
+          </div>
+
+          <div className="flex flex-col md:flex-row justify-around items-center text-sm mb-8 gap-6">
             <div className="text-center">
               <h4 className="font-semibold mb-2">Contact Us</h4>
               <p>+91 8861654544</p>
@@ -108,21 +101,28 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Navigation Links */}
-          <div className="flex justify-center space-x-8 text-sm mb-6">
-            {["Home", "Portfolio", "Services", "About", "Blog"].map(
-              (item, index) => (
-                <a href="#" key={index} className="hover:underline">
-                  {item}
-                </a>
-              )
-            )}
+          {/* Links */}
+          <div className="flex flex-wrap justify-center gap-6 text-sm mb-6">
+            {[
+              "Home",
+              "Greeting",
+              "Our Profile",
+              "About Us",
+              "What We do",
+              "Contact",
+            ].map((item, index) => (
+              <a
+                href="#"
+                key={index}
+                className="hover:underline hover:text-[#ffecd9]"
+              >
+                {item}
+              </a>
+            ))}
           </div>
 
-          {/* Divider */}
           <div className="border-t border-gray-300 opacity-50 mx-8 mb-4"></div>
 
-          {/* Copyright */}
           <div className="text-center text-xs pb-2">
             © Copyright 2025 All Rights Reserved
           </div>

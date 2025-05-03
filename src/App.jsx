@@ -1,17 +1,19 @@
 import HomePage from "./components/HomePage";
+import Greeting from "./components/Greeting";
 import OurPortfolio from "./components/OurPortfolio";
-import AboutSection from "./components/AboutSection";
+// import WhatWeDo from "./components/WhatWeDo";
 import AboutUs from "./components/AboutUs";
-import Footer from "./components/Footer";
+import Contact from "./components/Contact";
 
 function App() {
   return (
     <div className="font-sans">
       <HomePage />
-      <AboutSection />
+      <Greeting />
       <OurPortfolio />
+      {/* <WhatWeDo /> */}
       <AboutUs />
-      <Footer />
+      <Contact />
     </div>
   );
 }
