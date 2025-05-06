@@ -55,9 +55,9 @@ function ImageLayout() {
               Words From Our Couples
             </h2>
             <blockquote className="text-gray-800 text-sm leading-relaxed mb-5 italic border-l-4 pl-4 border-[#5c492d]">
-              "We are beyond thrilled with the beautiful photos [Photographer
-              Name] captured on our wedding day. From the intimate moments to
-              the grand celebrations, every shot was perfection."
+              "We are beyond thrilled with the beautiful photos praveen kumar A
+              captured on our wedding day. From the intimate moments to the
+              grand celebrations, every shot was perfection."
             </blockquote>
             <p className="text-gray-600 text-xs italic">
               – Ayush & Priya (Fictional Names)
