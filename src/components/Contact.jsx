@@ -10,7 +10,7 @@ import img8 from "../assets/Insta8.jpg";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#f5e5d5] pt-10 font-raleway">
+    <footer id="contact" className="bg-[#f5e5d5] pt-10 font-raleway">
       {/* Instagram Section */}
       <div className="text-center mb-10">
         <h2 className="text-lg font-semibold uppercase mb-6">

@@ -5,6 +5,7 @@ import coupleImage from "../assets/IMG7.jpg";
 function ImageLayout() {
   return (
     <section
+      id="about"
       className="px-4 py-10 md:px-16 bg-[#e2d1c1] min-h-screen flex flex-col justify-center"
       style={{ fontFamily: "Raleway, sans-serif" }}
     >

@@ -1,8 +1,8 @@
-import welcomeImage from "../assets/welcome.jpeg"; // adjust path if needed
-
+import welcomeImage from "../assets/welcome.jpeg";
 function AboutSection() {
   return (
     <section
+      id="greeting"
       className="relative px-6 md:px-20 pt-8 pb-8 min-h-[50vh] flex items-center"
       style={{
         fontFamily: "Forum, sans-serif",
@@ -10,7 +10,7 @@ function AboutSection() {
           radial-gradient(circle at right center, rgb(245 229 213 / 0%) 0%, rgb(245 229 213) 70%),
           url(${welcomeImage})`,
         backgroundSize: "cover",
-        backgroundPosition: "85% center", // Shift background image slightly right
+        backgroundPosition: "85% center",
         backgroundAttachment: "fixed",
       }}
     >

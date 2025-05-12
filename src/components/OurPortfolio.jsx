@@ -29,6 +29,7 @@ const portfolioItems = [
 
 const OurPortfolio = () => (
   <section
+    id="portfolio"
     className="px-4 md:px-12 py-10 min-h-screen bg-[#f5e5d5] flex flex-col justify-center"
     style={{ fontFamily: "Raleway, sans-serif" }}
   >
