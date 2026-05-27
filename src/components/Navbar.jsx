@@ -37,8 +37,13 @@ function Navbar() {
         
       `}
     >
-      <div className="font-bold text-xl text-white truncate max-w-[60vw] sm:max-w-none">
+      <div className="flex items-center font-bold text-xl text-white truncate max-w-[60vw] sm:max-w-none">
         HEARTSTRING
+        <img
+          src="/Logo3.png"
+          alt="Heartstring Logo"
+          className="h-10 sm:h-12 md:h-14 w-auto object-contain"
+        />
       </div>
 
       {/* Desktop Nav */}
