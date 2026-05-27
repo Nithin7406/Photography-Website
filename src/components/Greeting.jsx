@@ -10,8 +10,7 @@ function AboutSection() {
           radial-gradient(circle at right center, rgb(245 229 213 / 0%) 0%, rgb(245 229 213) 70%),
           url(${welcomeImage})`,
         backgroundSize: "cover",
-        backgroundPosition: "85% center",
-        backgroundAttachment: "fixed",
+        backgroundPosition: "right center",
       }}
     >
       {/* Content */}
