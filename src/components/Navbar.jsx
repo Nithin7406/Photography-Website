@@ -37,7 +37,10 @@ function Navbar() {
         
       `}
     >
-      <div className="flex items-center font-bold text-xl text-white truncate max-w-[60vw] sm:max-w-none">
+      <div
+        onClick={() => handleScrollToSection("home")}
+        className="flex items-center font-bold text-xl text-white truncate max-w-[60vw] sm:max-w-none cursor-pointer"
+      >
         HEARTSTRING
         <img
           src="/Logo3.png"
