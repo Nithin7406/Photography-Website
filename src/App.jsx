@@ -6,6 +6,7 @@ import OurPortfolio from "./components/OurPortfolio";
 import WhatWeDo from "./components/WhatWeDo";
 import AboutUs from "./components/AboutUs";
 import Contact from "./components/Contact";
+import Info from "./components/Info";
 
 import EventGallery from "./components/EventGallery";
 
@@ -18,6 +19,7 @@ function Home() {
       <WhatWeDo />
       <AboutUs />
       <Contact />
+      <Info />
     </>
   );
 }
