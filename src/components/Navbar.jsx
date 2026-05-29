@@ -1,76 +1,70 @@
 import { useState } from "react";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems = [
-    { name: "Home", to: "home" },
-    { name: "Gallery", to: "gallery" }, // updated
-    { name: "Portfolio", to: "portfolio" },
-    { name: "Services", to: "services" },
-    { name: "About", to: "about" },
-    { name: "Contact", to: "contact" },
-    { name: "Admin", to: "admin" }, // added
+    { name: "Home", to: "home", type: "scroll" },
+    { name: "Gallery", to: "/gallery", type: "route" },
+    { name: "Portfolio", to: "portfolio", type: "scroll" },
+    { name: "Services", to: "services", type: "scroll" },
+    { name: "About", to: "about", type: "scroll" },
+    { name: "Contact", to: "contact", type: "scroll" },
   ];
 
+  const handleNav = (item) => {
+    setMenuOpen(false);
+    if (item.type === "route") {
+      navigate(item.to);
+    } else {
+      // If we aren't on home, navigate home first then scroll
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(
+          () =>
+            document
+              .getElementById(item.to)
+              ?.scrollIntoView({ behavior: "smooth" }),
+          100
+        );
+      }
+    }
+  };
+
   return (
-    <header
-      className="
-        fixed top-0 left-0 w-full z-50
-        bg-gradient-to-b from-black/80 via-black/40 to-transparent
-        px-5 md:px-10 py-4
-      "
-    >
+    <header className="fixed top-0 left-0 w-full z-50 bg-gradient-to-b from-black/80 via-black/40 to-transparent px-5 md:px-10 py-4">
       <div className="flex items-center justify-between">
-        {/* Logo */}
-        <Link
-          to="home"
-          smooth={true}
-          duration={700}
-          className="flex items-center cursor-pointer"
-        >
-          <img
-            src="/Logo3.png"
-            alt="Everframe Logo"
-            className="h-12 md:h-14 object-contain"
-          />
+        <img
+          src="/Logo3.png"
+          alt="Logo"
+          className="h-12 md:h-17 cursor-pointer"
+          onClick={() => navigate("/")}
+        />
 
-          <h1
-            className="
-              text-white
-              text-lg md:text-2xl
-              tracking-[4px]
-              uppercase
-              ml-2
-              font-semibold
-            "
-          >
-            Everframe
-          </h1>
-        </Link>
-
-        {/* Desktop Menu */}
+        {/* Desktop */}
         <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item, index) => (
-            <Link
-              key={index}
-              to={item.to}
-              smooth={true}
-              duration={700}
-              offset={-80}
-              className="
-                text-white text-sm uppercase tracking-[3px]
-                cursor-pointer hover:text-[#d4a373]
-                transition duration-300
-              "
+          {navItems.map((item, i) => (
+            <button
+              key={i}
+              onClick={() => handleNav(item)}
+              className="text-white text-sm uppercase tracking-[3px] hover:text-[#d4a373] transition"
             >
               {item.name}
-            </Link>
+            </button>
           ))}
+          <button
+            onClick={() => navigate("/admin")}
+            className="text-white text-sm uppercase tracking-[3px] hover:text-[#d4a373]"
+          >
+            Admin
+          </button>
         </nav>
 
-        {/* Mobile Button */}
+        {/* Mobile Toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden flex flex-col gap-1"
@@ -79,46 +73,37 @@ function Navbar() {
             className={`w-6 h-[2px] bg-white transition ${
               menuOpen ? "rotate-45 translate-y-[6px]" : ""
             }`}
-          ></span>
-
+          />
           <span
             className={`w-6 h-[2px] bg-white transition ${
               menuOpen ? "opacity-0" : ""
             }`}
-          ></span>
-
+          />
           <span
             className={`w-6 h-[2px] bg-white transition ${
               menuOpen ? "-rotate-45 -translate-y-[6px]" : ""
             }`}
-          ></span>
+          />
         </button>
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-500 ${
-          menuOpen ? "max-h-96 opacity-100 mt-5" : "max-h-0 opacity-0"
+        className={`md:hidden transition-all ${
+          menuOpen
+            ? "max-h-96 opacity-100 mt-5"
+            : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
         <div className="bg-black/80 backdrop-blur-lg rounded-2xl p-5 flex flex-col gap-5">
-          {navItems.map((item, index) => (
-            <Link
-              key={index}
-              to={item.to}
-              smooth={true}
-              duration={700}
-              offset={-70}
-              onClick={() => setMenuOpen(false)}
-              className="
-                text-white uppercase tracking-[3px]
-                text-sm cursor-pointer
-                hover:text-[#d4a373]
-                transition duration-300
-              "
+          {navItems.map((item, i) => (
+            <button
+              key={i}
+              onClick={() => handleNav(item)}
+              className="text-white uppercase tracking-[3px] text-sm text-left"
             >
               {item.name}
-            </Link>
+            </button>
           ))}
         </div>
       </div>

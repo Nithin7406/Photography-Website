@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 
 import HomePage from "./pages/HomePage";
 import GalleryPage from "./pages/GalleryPage";
+import MasterGallery from "./pages/MasterGallery"; // New page
+import AdminLogin from "./pages/AdminLogin";
+import AdminUpload from "./pages/AdminUpload";
 
 import Greeting from "./sections/Greeting";
 import OurPortfolio from "./sections/OurPortfolio";
@@ -12,26 +15,21 @@ import Contact from "./sections/Contact";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import BackToTop from "./components/BackToTop";
-import FloatingWhatsapp from "./components/FloatingWhatsapp";
-import Testimonials from "./components/Testimonials";
+import FloatingActions from "./components/FloatingActions";
 import Loader from "./components/Loader";
 
 function Home() {
   return (
     <>
       <Navbar />
-
       <main className="overflow-hidden">
         <HomePage />
         <Greeting />
         <OurPortfolio />
         <WhatWeDo />
         <AboutUs />
-        <Testimonials />
         <Contact />
       </main>
-
       <Footer />
     </>
   );
@@ -39,31 +37,38 @@ function Home() {
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(
+    localStorage.getItem("isAdmin") === "true"
+  );
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2500);
-
+    const timer = setTimeout(() => setLoading(false), 2500);
     return () => clearTimeout(timer);
   }, []);
 
-  // Loader Screen
-  if (loading) {
-    return <Loader />;
-  }
+  if (loading) return <Loader />;
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-
+        {/* Hub Gallery */}
+        <Route path="/gallery" element={<MasterGallery />} />
+        {/* Specific Category Gallery */}
         <Route path="/gallery/:category" element={<GalleryPage />} />
+        <Route path="/admin" element={<AdminLogin setIsAdmin={setIsAdmin} />} />
+        <Route
+          path="/admin/upload"
+          element={
+            isAdmin ? (
+              <AdminUpload setIsAdmin={setIsAdmin} />
+            ) : (
+              <AdminLogin setIsAdmin={setIsAdmin} />
+            )
+          }
+        />
       </Routes>
-
-      <BackToTop />
-
-      <FloatingWhatsapp />
+      <FloatingActions />
     </BrowserRouter>
   );
 }

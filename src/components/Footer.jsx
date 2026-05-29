@@ -74,7 +74,7 @@ const Footer = () => {
 
                 {/* Instagram */}
                 <a
-                  href="https://www.instagram.com/praveen_kumar_j.m/?hl=en"
+                  href="https://www.instagram.com/wecaptures_photography/?hl=en"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="
@@ -120,7 +120,7 @@ const Footer = () => {
               </h3>
 
               <a
-                href="mailto:praveenkumar1122000jm@gmail.com"
+                href="mailto:wecaptures103@gmail.com"
                 className="
                   text-xs sm:text-sm md:text-base
                   break-all
@@ -128,7 +128,7 @@ const Footer = () => {
                   transition duration-300
                 "
               >
-                praveenkumar1122000jm@gmail.com
+                wecaptures103@gmail.com
               </a>
             </div>
           </div>

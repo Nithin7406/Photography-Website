@@ -108,7 +108,7 @@ const Contact = () => {
               {/* Form */}
               <form className="w-full max-w-xl flex flex-col sm:flex-row items-center gap-4">
                 <input
-                  type="email"
+                  type="wecaptures103@gmail.com"
                   placeholder="Enter your email"
                   className="w-full flex-1 px-5 py-4 rounded-full bg-white text-black outline-none border border-transparent focus:border-[#d6b08b] transition duration-300"
                 />
@@ -117,7 +117,7 @@ const Contact = () => {
                   type="submit"
                   className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#6f4e37] text-white uppercase tracking-[2px] text-sm hover:bg-[#4e3925] transition duration-300 shadow-lg"
                 >
-                  Subscribe
+                  Submet
                 </button>
               </form>
             </div>

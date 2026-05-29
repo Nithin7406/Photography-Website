@@ -1,74 +1,68 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useMemo } from "react";
-
-import galleryData from "../data/galleryData";
+import { useState, useEffect } from "react";
+import { getImagesByCategory } from "../firebase/imageServices";
 
 function GalleryPage() {
   const { category } = useParams();
   const navigate = useNavigate();
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // safer access
-  const gallery = useMemo(() => {
-    return galleryData?.[category] || null;
+  useEffect(() => {
+    const fetchEventImages = async () => {
+      setLoading(true);
+      try {
+        const fetchedImages = await getImagesByCategory(category);
+        setImages(fetchedImages);
+      } catch (error) {
+        console.error("Error fetching images:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchEventImages();
   }, [category]);
 
-  if (!gallery) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-[#f8f3ee]">
-        <div className="text-center">
-          <h1 className="text-3xl font-semibold text-[#4e3925]">
-            Gallery Not Found
-          </h1>
-
-          <button
-            onClick={() => navigate("/")}
-            className="mt-6 px-6 py-3 rounded-full bg-[#6f4e37] text-white hover:bg-[#4e3925]"
-          >
-            Go Home
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <section className="min-h-screen bg-[#f8f3ee] px-5 py-10 md:px-12 md:py-16">
-      {/* Back Button (better UX than -1) */}
-      <button
-        onClick={() => navigate("/")}
-        className="mb-10 px-6 py-3 rounded-full bg-[#6f4e37] text-white hover:bg-[#4e3925] transition"
-      >
-        ← Back
-      </button>
-
-      {/* Heading */}
+    <section className="min-h-screen bg-[#f8f3ee] px-5 py-10 md:px-12 md:py-16 pt-24">
+      {/* Intelligent Back Button */}
+      <div className="max-w-7xl mx-auto mb-10">
+        <button
+          onClick={() => navigate(-1)}
+          className="px-6 py-3 rounded-full bg-[#6f4e37] text-white hover:bg-[#4e3925] transition uppercase tracking-[2px] text-xs shadow-lg"
+        >
+          ← Back
+        </button>
+      </div>
       <div className="text-center mb-14">
-        <p className="uppercase tracking-[4px] text-sm text-[#7a5a3d] mb-3">
-          Everframe Gallery
-        </p>
-
-        <h1 className="font-['Cormorant_Garamond'] text-5xl md:text-7xl text-[#4e3925]">
-          {gallery.title}
+        <h1 className="font-['Cormorant_Garamond'] text-5xl md:text-7xl text-[#4e3925] capitalize">
+          {category?.replace("-", " ")}
         </h1>
       </div>
-
-      {/* Gallery Grid (fixed responsiveness) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-        {Array.isArray(gallery.images) &&
-          gallery.images.map((img, index) => (
+      {loading ? (
+        <div className="flex justify-center items-center h-64 text-[#8b6545] animate-pulse">
+          Loading amazing moments...
+        </div>
+      ) : images.length === 0 ? (
+        <div className="text-center text-[#8b6545]">
+          No images uploaded for this category yet.
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          {images.map((img) => (
             <div
-              key={index}
-              className="overflow-hidden rounded-3xl shadow-xl group"
+              key={img.id}
+              className="overflow-hidden rounded-3xl shadow-xl group cursor-pointer"
             >
               <img
-                src={img}
-                alt={`${gallery.title} ${index + 1}`}
-                loading="lazy"
+                src={img.url}
+                alt={`${category} event`}
                 className="w-full h-80 object-cover group-hover:scale-105 transition duration-700"
               />
             </div>
           ))}
-      </div>
+        </div>
+      )}
     </section>
   );
 }
