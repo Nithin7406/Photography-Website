@@ -26,7 +26,7 @@ const Footer = () => {
                 transition-all duration-300
               "
             >
-              Follow Us @Everframe
+              Follow Us @WeCapture
             </button>
           </div>
 
