@@ -1,36 +1,69 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-import HomePage from "./components/HomePage";
-import Greeting from "./components/Greeting";
-import OurPortfolio from "./components/OurPortfolio";
-import WhatWeDo from "./components/WhatWeDo";
-import AboutUs from "./components/AboutUs";
-import Contact from "./components/Contact";
-import Info from "./components/Info";
+import HomePage from "./pages/HomePage";
+import GalleryPage from "./pages/GalleryPage";
 
-import EventGallery from "./components/EventGallery";
+import Greeting from "./sections/Greeting";
+import OurPortfolio from "./sections/OurPortfolio";
+import WhatWeDo from "./sections/WhatWeDo";
+import AboutUs from "./sections/AboutUs";
+import Contact from "./sections/Contact";
+
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import BackToTop from "./components/BackToTop";
+import FloatingWhatsapp from "./components/FloatingWhatsapp";
+import Testimonials from "./components/Testimonials";
+import Loader from "./components/Loader";
 
 function Home() {
   return (
     <>
-      <HomePage />
-      <Greeting />
-      <OurPortfolio />
-      <WhatWeDo />
-      <AboutUs />
-      <Contact />
-      <Info />
+      <Navbar />
+
+      <main className="overflow-hidden">
+        <HomePage />
+        <Greeting />
+        <OurPortfolio />
+        <WhatWeDo />
+        <AboutUs />
+        <Testimonials />
+        <Contact />
+      </main>
+
+      <Footer />
     </>
   );
 }
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Loader Screen
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/event/:name" element={<EventGallery />} />
+
+        <Route path="/gallery/:category" element={<GalleryPage />} />
       </Routes>
+
+      <BackToTop />
+
+      <FloatingWhatsapp />
     </BrowserRouter>
   );
 }
