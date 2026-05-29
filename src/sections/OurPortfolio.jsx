@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import weddingImg from "../assets/events/wedding/wedding-1.jpg";
 import preWeddingImg from "../assets/events/prewedding/prewedding-1.jpg";
 import haldiImg from "../assets/events/haldi/haldi-1.jpg";
-import mehendiImg from "../assets/events/mehendi/Mehendi-1.jpg";
+import mehendiImg from "../assets/events/mehendi/mehendi-1.jpg";
 import sangeetImg from "../assets/events/sangeet/sangeet-1.jpg";
 import birthdayImg from "../assets/events/birthday/birthday-1.jpg";
 import ourPortfolioImg from "../assets/hero/OurPortfolio.png";
